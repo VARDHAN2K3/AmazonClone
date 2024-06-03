@@ -371,10 +371,34 @@ products.forEach((product) => {
           <option>10</option>
         </select>
       </div>
-      <button class="add-to-cart">
+      <button class="add-to-cart js-add-to-cart" data-product-name="${product.name}">
         Add to Cart
       </button>
     </section>
   `;
   document.querySelector('.js-products-main').innerHTML=html;
+});
+
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+  button.addEventListener('click',()=>{
+    console.log('Product Added');
+    const productName=button.dataset.productName;
+    let macthedItem;
+    cart.forEach((item)=>{
+      if(item.productName === productName){
+        macthedItem=item;
+      }
+    });
+    if(macthedItem){
+      macthedItem.quantity++;
+    }
+    else{
+      cart.push({
+        productName,
+        quantity:1
+      });
+    }
+    
+    console.log(cart);
+  });
 });
