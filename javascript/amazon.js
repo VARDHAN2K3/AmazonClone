@@ -381,6 +381,7 @@ products.forEach((product) => {
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
   button.addEventListener('click',()=>{
+    //added msg
     console.log('Product Added');
     const productName=button.dataset.productName;
     let macthedItem;
@@ -398,7 +399,12 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
         quantity:1
       });
     }
+
+    let quantityCount=0;
+    cart.forEach((item)=>{
+      quantityCount+=item.quantity;
+    });
     
-    console.log(cart);
+    document.querySelector('.js-cart-count').innerHTML=quantityCount;
   });
 });
