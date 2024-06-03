@@ -350,9 +350,9 @@ products.forEach((product) => {
       </div>
       <div class="ratings-display">
         <div>
-          <img class="ratings" src="images/ratings/rating-${product.rating.stars * 10}.png">
+          <img class="stars" src="images/ratings/rating-${product.rating.stars * 10}.png">
         </div>
-        <div class="total-ratings">${product.rating.count}</div>
+        <div class="count">${product.rating.count}</div>
       </div>
       <div class="product-cost">
         $${(product.priceCents / 100).toFixed(2)}
