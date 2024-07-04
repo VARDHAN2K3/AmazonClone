@@ -70,23 +70,28 @@
 .add-to-cart:hover{
   background-color: rgb(248, 196, 11);
 }
-@media (max-width:575px){
+@media (max-width:717px){
   .products-main{
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width:576px) and (max-width:800px){
+@media (min-width:718px) and (max-width:1000px){
   .products-main{
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media (min-width:801px) and (max-width:1000px){
+@media (min-width:1001px) and (max-width:1250px){
   .products-main{
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
-@media (min-width:1001px) and (max-width:1300px){
+@media (min-width:1251px) and (max-width:1625px){
   .products-main{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+@media(min-width:1626px){
+  .products-main{
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }

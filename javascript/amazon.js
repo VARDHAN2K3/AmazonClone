@@ -343,14 +343,14 @@ products.forEach((product) => {
   html+=`
     <section class="products-display">
       <div class="product-image-display">
-        <img class="products-image" src="${product.image}">
+        <img class="products-image" src="../${product.image}">
       </div>
       <div class="products-details">
         ${product.name}
       </div>
       <div class="ratings-display">
         <div>
-          <img class="stars" src="images/ratings/rating-${product.rating.stars * 10}.png">
+          <img class="stars" src="../images/ratings/rating-${product.rating.stars * 10}.png">
         </div>
         <div class="count">${product.rating.count}</div>
       </div>
@@ -371,6 +371,8 @@ products.forEach((product) => {
           <option>10</option>
         </select>
       </div>
+      <div class="added-msg js-added-msg" data-product-name="${product.name}"></div>
+      <!-- use productId in data instead for uniqueness-->
       <button class="add-to-cart js-add-to-cart" data-product-name="${product.name}">
         Add to Cart
       </button>
@@ -381,8 +383,7 @@ products.forEach((product) => {
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
   button.addEventListener('click',()=>{
-    //added msg
-    console.log('Product Added');
+    
     const productName=button.dataset.productName;
     let macthedItem;
     cart.forEach((item)=>{
@@ -399,12 +400,15 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
         quantity:1
       });
     }
-
+    
     let quantityCount=0;
     cart.forEach((item)=>{
       quantityCount+=item.quantity;
     });
     
+    
+
     document.querySelector('.js-cart-count').innerHTML=quantityCount;
   });
 });
+
