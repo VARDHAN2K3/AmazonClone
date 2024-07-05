@@ -1,6 +1,7 @@
 import {products} from '../data/products.js';
-import {cart} from '../javascript/cart.js';
+import {cart,addToCart} from '../javascript/cart.js';
 
+let cartQuantity=Number(localStorage.getItem('cartQuantity')) || 0;
 let html='';
 products.forEach((product) => {
   html+=`
@@ -34,7 +35,7 @@ products.forEach((product) => {
           <option value="10">10</option>
         </select>
       </div>
-      <div class="added-msg js-added-msg-${product.id}" data-product-id-added-msg="${product.id}"></div>
+      <div class="added-msg js-added-msg-${product.id}"></div>
       <!-- use productId in data instead for uniqueness-->
       <button class="add-to-cart js-add-to-cart" data-product-Id="${product.id}">
         Add to Cart
@@ -48,38 +49,20 @@ products.forEach((product) => {
 document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
   addBtn.addEventListener('click',() =>{
     const productId = addBtn.dataset.productId;
-    let quantity;
-    products.forEach((product) => {
-      if(product.id === productId){
-        let matching;
-        cart.forEach((cartItem) => {
-          if(cartItem.productId === productId){
-            matching=cartItem;
-          }
-        });
-        const quantitySelect=document.querySelector(`.js-quantity-selection-${productId}`);
-        quantity=Number(quantitySelect.value);
-        if(matching){
-            matching.quantity+=quantity;
-        }else{
-          cart.push({
-            productId,
-            quantity
-          });
-        }
-        const divElement = document.querySelector(`.js-added-msg-${product.id}`);
-        setTimeout(() => {
-          divElement.innerHTML=`<img class="checkmark-icon" src="../images/icons/checkmark.png">Added ${quantity}`;
-        },0);
-        setTimeout(() => {
-          divElement.innerHTML='';
-        },2000);
-      }
-    });
-    let cartQuantity=0;
+    
+    addToCart(productId);
+
+    
+    renderCartCount(cartQuantity);    
+  });
+});
+
+//functions
+function renderCartCount(cartQuantity){
     cart.forEach((cartItem) => {
       cartQuantity++;
     });
+    localStorage.setItem('cartQuantity',String(cartQuantity));
     document.querySelector('.js-cart-count').innerHTML=cartQuantity;
-  });
-});
+    
+}

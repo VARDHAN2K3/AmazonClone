@@ -87,7 +87,7 @@
 .returns-orders-link{
   border:1px solid black;
   height:50px;
-  padding-right:6px;
+  padding-right:8px;
   cursor:pointer;
   transition: border 0.18s;
 }
@@ -113,7 +113,7 @@
   align-items:center;
   cursor:pointer;
   border:1px solid rgb(7, 7, 7);
-  padding:6px;
+  padding:4px;
   transition:border 0.18s;
 }
 .cart-link:hover{
@@ -124,16 +124,17 @@
   position:relative;
 }
 .cart-icon{
-  margin-left:4px;
-  height:40px;
+  height:44px;
 }
 .cart-count{
   color:rgb(255, 124, 2);
   font-weight:bold;
   position: absolute;
+  left:26px;
+  right:18px;
   top:-2px;
-  right:19px;
-  font-size:18px;
+  font-weight:bold;
+  font-size:20px;
 }
 .cart-text{
   font-weight:bold;
