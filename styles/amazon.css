@@ -22,7 +22,7 @@
   object-fit: contain;
 }
 .products-details{
-  font-size: 15px;
+  font-size: 20px;
   line-height:20px;
   height:40px;
   margin-bottom:6px;
@@ -41,11 +41,9 @@
   margin-right:8px;
 }
 .count{
-  font-size:15px;
   color:rgb(94, 94, 245);
 }
 .product-cost{
-  font-size:15px;
   font-weight:bold;
   margin-bottom:10px;
 }
@@ -55,21 +53,26 @@
   border-radius:8px;
   border:1px solid rgb(215, 211, 211);
   box-shadow:1px 1px 5px rgba(0,0,0,0.15);
-  margin-bottom:48px;
   cursor:pointer;
 }
 .added-msg{
+  color:rgb(0, 118, 0);
   height:40px;
-  margin-bottom:6px;
+  margin-top:16px;
   display:flex;
   align-items: center;
 }
+.checkmark-icon{
+  height:24px;
+  margin-right:8px;
+  margin-bottom:4px;
+}
 .add-to-cart{
-  background-color: rgb(255, 209, 44);
-  padding:8px;
+  background-color: rgb(255, 248, 44);
+  padding:10px;
   border:none;
   border-radius:30px;
-  font-size:14px;
+  font-size:20px;
   cursor:pointer;
   transition:background-color 0.18s;
 }

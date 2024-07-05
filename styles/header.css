@@ -125,15 +125,15 @@
 }
 .cart-icon{
   margin-left:4px;
-  height:38px;
+  height:40px;
 }
 .cart-count{
   color:rgb(255, 124, 2);
   font-weight:bold;
   position: absolute;
   top:-2px;
-  right:18px;
-  font-size:20px;
+  right:19px;
+  font-size:18px;
 }
 .cart-text{
   font-weight:bold;
