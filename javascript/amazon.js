@@ -60,7 +60,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
 
 //functions
 export function renderCartCount(cartQuantity){
-  
   document.querySelector('.js-cart-count').innerHTML=cartQuantity;
 }
 

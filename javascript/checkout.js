@@ -1,4 +1,3 @@
-import { renderCartCount } from "./amazon";
 const html=
  `
     <header class="header">
@@ -12,7 +11,7 @@ const html=
         </section>
         <section class="center-header">
             <div class="checkout-txt">
-                Checkout (<div class="js-cart-count">${renderCartCount} items</div><div>)</div>
+                Checkout (<div class="js-cart-count">3 items</div><div>)</div>
             </div>
         </section>
         <section class="right-header">
