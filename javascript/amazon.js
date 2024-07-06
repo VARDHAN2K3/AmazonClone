@@ -1,11 +1,10 @@
 import {products} from '../data/products.js';
-import {cart,addToCart} from '../javascript/cart.js';
+import {addToCart,updateCartCount} from '../data/cart.js';
 
-let cartQuantity=Number(localStorage.getItem('cartQuantity')) || 0;
 let html='';
 products.forEach((product) => {
   html+=`
-    <section class="products-display">
+    <main class="products-display">
       <div class="product-image-display">
         <img class="products-image" src="../${product.image}">
       </div>
@@ -40,7 +39,7 @@ products.forEach((product) => {
       <button class="add-to-cart js-add-to-cart" data-product-Id="${product.id}">
         Add to Cart
       </button>
-    </section>
+    </main>
   `;
   document.querySelector('.js-products-main').innerHTML=html;
 });
@@ -50,19 +49,27 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
   addBtn.addEventListener('click',() =>{
     const productId = addBtn.dataset.productId;
     
-    addToCart(productId);
+    const quantity = Number(document.querySelector(`.js-quantity-selection-${productId}`).value);
 
-    
-    renderCartCount(cartQuantity);    
+    addToCart(productId,quantity);
+
+    updateCartCount();    
   });
 });
 
+
 //functions
-function renderCartCount(cartQuantity){
-    cart.forEach((cartItem) => {
-      cartQuantity++;
-    });
-    localStorage.setItem('cartQuantity',String(cartQuantity));
-    document.querySelector('.js-cart-count').innerHTML=cartQuantity;
-    
+export function renderCartCount(cartQuantity){
+  
+  document.querySelector('.js-cart-count').innerHTML=cartQuantity;
+}
+
+export function renderAddedMsg(product,quantity){
+  const divElement = document.querySelector(`.js-added-msg-${product.id}`);
+  setTimeout(() => {
+    divElement.innerHTML=`<img class="checkmark-icon" src="../images/icons/checkmark.png">Added ${quantity}`;
+  },0);
+  setTimeout(() => {
+    divElement.innerHTML='';
+  },2000);
 }
