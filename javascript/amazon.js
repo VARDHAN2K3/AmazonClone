@@ -58,6 +58,18 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
   });
 });
 
+let isDisplay=false;
+document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
+  const mobileHeader = document.querySelector('.js-mobile-header-div');
+  if(!isDisplay){
+    mobileHeader.classList.add('mobile-header-div-display');
+    isDisplay = true;
+  }else{
+    mobileHeader.classList.remove('mobile-header-div-display');
+    isDisplay = false;
+  }
+});
+
 
 //functions
 export function renderCartCount(cartQuantity){

@@ -83,11 +83,12 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.hamburgur-menu{
+.hamburger-menu{
   display: none;
   cursor:pointer;
+  padding:2px;
 }
-.hamburgur-menu-icon{
+.hamburger-menu-icon{
   height:14px;
   margin-right:6px;
 }
@@ -155,6 +156,37 @@
   font-size:15px;
   margin-top:12px;
 }
+.mobile-header-div{
+  display: none;
+  height:84px;/*42 half*/
+  background-color: black;
+  position:fixed;
+  top:62px;
+  left:0;
+  right:0;
+  transition:display 0.15s;
+}
+.mobile-returns-orders-div,
+.mobile-checkout-div{
+  height:42px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  color:white;
+  transition:background-color 0.15s;
+  font-weight:bold;
+  font-size:16px;
+}
+.mobile-returns-orders-div:hover,
+.mobile-checkout-div:hover{
+  background-color: rgba(0, 62, 133, 0.279);
+}
+.mobile-checkout-link{
+  text-decoration: none;
+}
+.mobile-header-div-display{
+  display: block;
+}
 
 @media (max-width:574.40px){
   .amazon-logo-link{
@@ -168,7 +200,7 @@
   .cart-link-div{
     display: none;
   }
-  .hamburgur-menu{
+  .hamburger-menu{
     display:block;
     margin-left:15px;
   }
