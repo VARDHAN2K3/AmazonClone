@@ -7,32 +7,38 @@
   height:62px;
   display: flex;
   justify-content: space-between;
-  padding:0px 6px 0px 16px;
+  align-items: center;
+  padding:0px 16px 0px 12px;
 }
 
-.left-header{
-  display: flex;
-  align-items: center;
-  /*width:178px;*/
-}
 .amazon-logo-link{
   border:1px solid black;
-  height:50px;
-  padding-right:4px;
+  padding:26px 6px 3px;
   cursor:pointer;
-  margin-right:10px;
   transition:border 0.18s;
 }
 .amazon-logo-link:hover{
   border:1px solid white;
 }
 .amazon-logo{
-  height:38px;
+  height:32px;
   margin-top:10px;
-  margin-left:5px;
 }
 .amazon-logo-mobile-link{
   display: none;
+  border:1px solid black;
+  height:50px;
+  width:46px;
+  transition:border 0.18s;
+}
+.amazon-logo-mobile-link:hover{
+  border:1px solid white;
+}
+.amazon-logo-mobile-icon{
+  height:40px;
+  margin-top:6px;
+  margin-left:3px;
+  cursor:pointer;
 }
 
 .center-header{
@@ -43,7 +49,7 @@
 }
 .search-bar{
   flex:1;
-  max-width:1000px;
+  max-width:820px;
   /*width:0;*/
   padding:12px 15px;
   border:2px solid black;
@@ -57,8 +63,8 @@
   border:2px solid rgb(248, 178, 73);
 }
 .search-icon-btn{
-  padding:5.5px;
-  width:54px;
+  padding:6.3px;
+  width:50px;
   border:2px solid black;
   border-top-right-radius:6px;
   border-bottom-right-radius:6px;
@@ -68,21 +74,22 @@
 }
 .search-icon{
   margin-top:4px;
-  height:24px;
+  height:22px;
 }
 
 .right-header{
-  width:230px;
   display:flex;
   align-items: center;
   justify-content: center;
-  margin-right:6px;
-}
-.returns-orders-cart{
-  display: flex;
+  flex-shrink: 0;
 }
 .hamburgur-menu{
   display: none;
+  cursor:pointer;
+}
+.hamburgur-menu-icon{
+  height:14px;
+  margin-right:6px;
 }
 .returns-orders-link{
   border:1px solid black;
@@ -95,7 +102,7 @@
   border:1px solid white;
 }
 .returns{
-  font-size:16px;
+  font-size:13px;
   color:white;
   margin-top:7px;
   margin-bottom:2px;
@@ -103,7 +110,7 @@
 }
 .orders{
   font-weight:bold;
-  font-size:18px;
+  font-size:15px;
   color:white;
   margin-left:7px;
   white-space: nowrap;
@@ -117,9 +124,10 @@
   cursor:pointer;
   border:1px solid rgb(7, 7, 7);
   padding:4px;
+  height:40px;
   transition:border 0.18s;
 }
-.cart-link:hover{
+.cart-link-div:hover{
   border:1px solid white;
 }
 .cart-count-position{
@@ -127,7 +135,7 @@
   position:relative;
 }
 .cart-icon{
-  height:44px;
+  height:36px;
 }
 .cart-count{
   color:rgb(255, 124, 2);
@@ -135,76 +143,64 @@
   position: absolute;
   display: flex;
   justify-content: center;
-  left:11px;
+  left:8px;
   right:0;
-  top:-2px;
-  font-size:19px;
+  top:-3px;
+  font-size:17px;
   padding:2px 4px;
 }
 .cart-text{
   font-weight:bold;
   color:white;
-  font-size:18px;
+  font-size:15px;
   margin-top:12px;
 }
 
-@media (max-width:717px){
+@media (max-width:574.40px){
   .amazon-logo-link{
     display: none;
   }
   .amazon-logo-mobile-link{
     display: block;
-    border:1px solid black;
-    height:50px;
-    width:46px;
-    margin-right:14px;
-    transition:border 0.18s;
+    margin-right:9px;
   }
-  .amazon-logo-mobile-link:hover{
-    border:1px solid white;
-  }
-  .amazon-logo-mobile-icon{
-    height:40px;
-    margin-top:6px;
-    margin-left:3px;
-  }
-  .center-header{
-    width:480px;
-  }
-  .right-header{
-    width:60px;
-  }
-  .returns-orders-cart{
+  .returns-orders-link,
+  .cart-link-div{
     display: none;
   }
   .hamburgur-menu{
     display:block;
-  }
-  .hamburgur-menu-icon{
-    height:17px;
-  }
-}
-@media ((min-width:718px) and (max-width:1000px)){
-  .left-header{
-    margin-right:8px;
+    margin-left:15px;
   }
   .search-bar{
-    width:0px;
+    margin-left:0;
   }
-  .right-header{
+}
+@media ((min-width:574.41px) and (max-width:800px)){
+  .amazon-logo-link{
+    margin-right:10px;
+  }
+  .search-bar{
+    margin-left:0;
+    width:138px;
+  }
+  .returns-orders-link{
+    margin-left:20px;
+  }
+}
+@media (min-width:801px) and (max-width:1280px){
+  .search-bar{
+    margin-left:74px;
+  }
+  .returns-orders-link{
+    margin-left:20px;
+  }
+}
+@media (min-width:1281px){
+  .search-bar{
+    margin-left:70px;
+  }
+  .returns-orders-link{
     margin-left:22px;
-  }
-}
-@media (min-width:1001px) and (max-width:1600px){
-  .left-header{
-    margin-right:90px;
-  }
-  .right-header{
-    margin-left:14px;
-  }
-}
-@media (min-width:1601px){
-  .left-header{
-    margin-right:70px;
   }
 }

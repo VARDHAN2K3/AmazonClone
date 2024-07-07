@@ -22,4 +22,3 @@ const html=
  `;
 
  document.querySelector('.js-header-div').innerHTML=html;
- console.log(html);

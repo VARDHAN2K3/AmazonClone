@@ -9,12 +9,12 @@
   <body>
     <header class="header">
       <section class="left-header">
-        <div class="amazon-logo-mobile-link">
+        <a class="amazon-logo-mobile-link" href="./amazon.html">
           <img class="amazon-logo-mobile-icon" src="../images/amazon-mobile-logo-white.png">
-        </div>
-        <div class="amazon-logo-link">
+        </a>
+        <a class="amazon-logo-link" href="./amazon.html">
           <img class="amazon-logo" src="../images/amazon-logo-white.png">
-        </div>
+        </a>
       </section>
       <section class="center-header">
         <input class="search-bar" 
@@ -27,27 +27,25 @@
         <div class="hamburgur-menu">
           <img class="hamburgur-menu-icon" src="../images/icons/hamburger-menu.png">
         </div>
-        <div class="returns-orders-cart">
-          <div class="returns-orders-link">
-            <div class="returns">
-              Returns
+        <div class="returns-orders-link">
+          <div class="returns">
+            Returns
+          </div>
+          <div class="orders">
+            & Orders
+          </div>
+        </div>
+        <a class="cart-link" href="checkout.html">
+          <div class="cart-link-div">
+            <div class="cart-count-position">
+              <img class="cart-icon" src="../images/icons/cart-icon.png">
+              <div class="cart-count js-cart-count">0</div>
             </div>
-            <div class="orders">
-              & Orders
+            <div class="cart-text">
+              Cart
             </div>
           </div>
-          <a class="cart-link" href="checkout.html">
-            <div class="cart-link-div">
-              <div class="cart-count-position">
-                <img class="cart-icon" src="../images/icons/cart-icon.png">
-                <div class="cart-count js-cart-count">0</div>
-              </div>
-              <div class="cart-text">
-                Cart
-              </div>
-            </div>
-          </a>
-        </div>
+        </a>
       </section>
     </header>
     <main class="products-main js-products-main">
