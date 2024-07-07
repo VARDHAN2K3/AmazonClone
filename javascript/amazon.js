@@ -74,6 +74,7 @@ document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
 //functions
 export function renderCartCount(cartQuantity){
   document.querySelector('.js-cart-count').innerHTML=cartQuantity;
+  document.querySelector('.js-mobile-cart-count').innerHTML=cartQuantity;
 }
 
 export function renderAddedMsg(product,quantity){

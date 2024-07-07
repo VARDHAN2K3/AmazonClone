@@ -45,7 +45,7 @@ function checkOutCart(productId){
     return matching;
 }
 
-export function updateCartCount(productId){
+export function updateCartCount(){
     cartQuantity = cart.length;
     localStorage.setItem('cartQuantity',String(cartQuantity));
     renderCartCount(cartQuantity);
