@@ -63,7 +63,7 @@
   border:2px solid rgb(248, 178, 73);
 }
 .search-icon-btn{
-  padding:6.5px;
+  padding:6.3px;
   width:50px;
   border:2px solid black;
   border-top-right-radius:6px;
@@ -158,13 +158,12 @@
 }
 .mobile-header-div{
   display: none;
-  height:84px;/*42 half*/
+  height:0px;/*42 half*/
   background-color: black;
   position:fixed;
   top:62px;
   left:0;
   right:0;
-  transition:display 0.15s;
 }
 .mobile-returns-orders-div,
 .mobile-checkout-div{
@@ -186,6 +185,7 @@
 }
 .mobile-header-div-display{
   display: block;
+  height:84px;
 }
 .mobile-cart-count{
   color:rgb(255, 124, 2);
