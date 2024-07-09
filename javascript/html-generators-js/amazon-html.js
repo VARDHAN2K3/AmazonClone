@@ -1,6 +1,5 @@
 import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
-import { cart } from "../../data/cart.js";
 
 export function renderAmazonProducts(){
     let html='';
@@ -47,7 +46,7 @@ export function renderAmazonProducts(){
 });
 }
 
-export function renderAmazonHeaderHtml(){
+export function renderAmazonHeader(){
     const headHtml=
     `
     <section class="left-header">
@@ -81,7 +80,7 @@ export function renderAmazonHeaderHtml(){
           <div class="cart-link-div">
             <div class="cart-count-position">
               <img class="cart-icon" src="../images/icons/cart-icon.png">
-              <div class="cart-count js-cart-count">${cart.length}</div>
+              <div class="cart-count js-cart-count"></div>
             </div>
             <div class="cart-text">
               Cart
@@ -101,7 +100,7 @@ export function renderAmazonHeaderHtml(){
         </a>
         <a href="./checkout.html" class="mobile-checkout-link">
           <div class="mobile-checkout-div">
-            Cart (<div class="mobile-cart-count js-mobile-cart-count">${cart.length}</div>)
+            Cart (<div class="mobile-cart-count js-mobile-cart-count"></div>)
           </div>
         </a>
     `;

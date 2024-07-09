@@ -1,8 +1,9 @@
-import { renderAmazonProducts,renderAmazonHeaderHtml } from './html-generators-js/amazon-html.js';
-import {addToCart} from '../data/cart.js';
+import { renderAmazonProducts,renderAmazonHeader } from './html-generators-js/amazon-html.js';
+import {cart,addToCart} from '../data/cart.js';
 
-renderAmazonHeaderHtml();
+renderAmazonHeader();
 renderAmazonProducts();
+renderCartCount();
 
 document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
   addBtn.addEventListener('click',() =>{
@@ -11,8 +12,8 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
     const quantity = Number(document.querySelector(`.js-quantity-selection-${productId}`).value);
 
     addToCart(productId,quantity);
-
-    renderAmazonHeaderHtml();    
+    
+    renderCartCount();
   });
 });
 
@@ -30,6 +31,10 @@ document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
 
 
 //functions
+function renderCartCount(){
+  document.querySelector('.js-cart-count').innerHTML=cart.length;
+  document.querySelector('.js-mobile-cart-count').innerHTML=cart.length;
+}
 export function renderAddedMsg(product,quantity){
   const divElement = document.querySelector(`.js-added-msg-${product.id}`);
   setTimeout(() => {
