@@ -1,10 +1,8 @@
 import { products } from "./products.js";
-import { renderAddedMsg,renderCartCount } from "../javascript/amazon.js";
+import { renderAddedMsg } from "../javascript/amazon.js";
+
 
 export const cart=JSON.parse(localStorage.getItem('cart'))||[];
-let cartQuantity=Number(localStorage.getItem('cartQuantity')) || 0;
-
-renderCartCount(cartQuantity);
 
 //funtions
 export function addToCart(productId,quantity){
@@ -43,10 +41,4 @@ function checkOutCart(productId){
         }
     });
     return matching;
-}
-
-export function updateCartCount(){
-    cartQuantity = cart.length;
-    localStorage.setItem('cartQuantity',String(cartQuantity));
-    renderCartCount(cartQuantity);
 }

@@ -1,5 +1,6 @@
 import { products } from "../../data/products.js";
-import { renderPrice } from "../../others/price.js"
+import { renderPrice } from "../../others/price.js";
+import { cart } from "../../data/cart.js";
 
 export function renderAmazonProducts(){
     let html='';
@@ -80,7 +81,7 @@ export function renderAmazonHeaderHtml(){
           <div class="cart-link-div">
             <div class="cart-count-position">
               <img class="cart-icon" src="../images/icons/cart-icon.png">
-              <div class="cart-count js-cart-count">0</div>
+              <div class="cart-count js-cart-count">${cart.length}</div>
             </div>
             <div class="cart-text">
               Cart
@@ -89,5 +90,20 @@ export function renderAmazonHeaderHtml(){
         </a>
     </section>
     `;
-    document.querySelector('.header').innerHTML=headHtml;
+    document.querySelector('.js-header').innerHTML=headHtml;
+    
+    const mobileHeaderHtml=
+    `
+        <a class="mobile-returns-orders-link">
+          <div class="mobile-returns-orders-div">
+            Returns & Orders
+          </div>
+        </a>
+        <a href="./checkout.html" class="mobile-checkout-link">
+          <div class="mobile-checkout-div">
+            Cart (<div class="mobile-cart-count js-mobile-cart-count">${cart.length}</div>)
+          </div>
+        </a>
+    `;
+    document.querySelector('.js-mobile-header-div').innerHTML=mobileHeaderHtml;
 }
