@@ -2,7 +2,15 @@ import { products } from "./products.js";
 import { renderAddedMsg } from "../javascript/amazon.js";
 
 
-export const cart=JSON.parse(localStorage.getItem('cart'))||[];
+export let cart;
+
+loadCartFromStorage();
+function loadCartFromStorage(){
+    cart=JSON.parse(localStorage.getItem('cart'))||[];
+}
+function loadCartToStorage(){
+    localStorage.setItem('cart',JSON.stringify(cart));
+}
 
 //funtions
 export function addToCart(productId,quantity){
@@ -25,7 +33,7 @@ export function addToCart(productId,quantity){
 
             //addingToCart(productId,quantity);
 
-            localStorage.setItem('cart',JSON.stringify(cart));
+            loadCartToStorage();
 
             renderAddedMsg(product,quantity);
 
