@@ -1,6 +1,6 @@
 import { products } from "../data/products.js";
 import { renderPrice } from "../others/price.js";
-import { addToCart } from "../data/cart.js";
+import { cart,addToCart } from "../data/cart.js";
 
 let isDisplay=false;
 document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
@@ -69,6 +69,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
     addToCart(productId,dlQuantity);
 
     renderAddedMsg(productId,dlQuantity);
+    renderCartCount();
   });
 });
 
@@ -82,4 +83,8 @@ function renderAddedMsg(productId,dlQuantity){
   setTimeout(() =>{
     divAdded.innerHTML='';
   },2000);
+}
+
+function renderCartCount(){
+  document.querySelector('.js-cart-count').innerHTML=1;
 }
