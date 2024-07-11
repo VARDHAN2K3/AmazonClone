@@ -1,4 +1,5 @@
-//import { Cart } from "../data/cart.js";
+import { cart } from "../data/cart.js";
+console.log(cart);
 
 const bodyHtml=
     `

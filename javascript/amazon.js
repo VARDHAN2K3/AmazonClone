@@ -1,6 +1,6 @@
-import { products } from '../data/products.js';
-import {cart,addToCart} from '../data/cart.js';
-import { renderPrice } from '../others/price.js';
+import { products } from "../data/products.js";
+import { renderPrice } from "../others/price.js";
+import { addToCart } from "../data/cart.js";
 
 let isDisplay=false;
 document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
@@ -58,34 +58,28 @@ products.forEach((product) => {
 });
 document.querySelector('.js-products-main').innerHTML=html;
 
-renderCartCount();
+//renderCartCount();
 
 document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
   addBtn.addEventListener('click',() =>{
     const productId = addBtn.dataset.productId;
     
-    const quantity = Number(document.querySelector(`.js-quantity-selection-${productId}`).value);
+    const dlQuantity = Number(document.querySelector(`.js-quantity-selection-${productId}`).value);
 
-    addToCart(productId,quantity);
+    addToCart(productId,dlQuantity);
 
-    renderCartCount();
+    renderAddedMsg(productId,dlQuantity);
   });
 });
 
 
 //functions
-export function renderAddedMsg(product,quantity){
-  const divElement = document.querySelector(`.js-added-msg-${product.id}`);
+function renderAddedMsg(productId,dlQuantity){
+  const divAdded=document.querySelector(`.js-added-msg-${productId}`);
   setTimeout(() => {
-    divElement.innerHTML=`<img class="checkmark-icon" src="../images/icons/checkmark.png">Added ${quantity}`;
+    divAdded.innerHTML=`<img class="checkmark-icon" src="../images/icons/checkmark.png"> Added ${dlQuantity}`;
   },0);
-  setTimeout(() => {
-    divElement.innerHTML='';
+  setTimeout(() =>{
+    divAdded.innerHTML='';
   },2000);
-}
-
-function renderCartCount(){
-  let cartLength=cart.length;
-  document.querySelector('.js-cart-count').innerHTML=cartLength;
-  document.querySelector('.js-mobile-cart-count').innerHTML=cartLength;
 }
