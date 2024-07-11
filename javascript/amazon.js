@@ -2,6 +2,18 @@ import { products } from '../data/products.js';
 import {cart,addToCart} from '../data/cart.js';
 import { renderPrice } from '../others/price.js';
 
+let isDisplay=false;
+document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
+  const mobileHeader = document.querySelector('.js-mobile-header-div');
+  if(!isDisplay){
+    mobileHeader.classList.add('mobile-header-div-display');
+    isDisplay = true;
+  }else{
+    mobileHeader.classList.remove('mobile-header-div-display');
+    isDisplay = false;
+  }
+});
+
 let html='';
 products.forEach((product) => {
   html+=
@@ -58,18 +70,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
 
     renderCartCount();
   });
-});
-
-let isDisplay=false;
-document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
-  const mobileHeader = document.querySelector('.js-mobile-header-div');
-  if(!isDisplay){
-    mobileHeader.classList.add('mobile-header-div-display');
-    isDisplay = true;
-  }else{
-    mobileHeader.classList.remove('mobile-header-div-display');
-    isDisplay = false;
-  }
 });
 
 
