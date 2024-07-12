@@ -2,6 +2,7 @@ import { products } from "../data/products.js";
 import { renderPrice } from "../others/price.js";
 import { cart,addToCart } from "../data/cart.js";
 
+renderCartCount();
 let isDisplay=false;
 document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
   const mobileHeader = document.querySelector('.js-mobile-header-div');
@@ -58,8 +59,6 @@ products.forEach((product) => {
 });
 document.querySelector('.js-products-main').innerHTML=html;
 
-//renderCartCount();
-
 document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
   addBtn.addEventListener('click',() =>{
     const productId = addBtn.dataset.productId;
@@ -86,5 +85,6 @@ function renderAddedMsg(productId,dlQuantity){
 }
 
 function renderCartCount(){
-  document.querySelector('.js-cart-count').innerHTML=1;
+  document.querySelector('.js-cart-count').innerHTML=cart.length;
+  document.querySelector('.js-mobile-cart-count').innerHTML=cart.length;
 }

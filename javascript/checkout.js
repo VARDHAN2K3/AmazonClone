@@ -1,200 +1,88 @@
 import { cart } from "../data/cart.js";
-console.log(cart);
+import { products } from "../data/products.js";
+import { renderPrice } from "../others/price.js";
 
-const bodyHtml=
-    `
-        <div class="checkout-body">
-            <section class="checkout-title">
-                Review your order
-            </section>
-            <section class="checkout-grid">
-                <div class="order-summary-section-first">
-                    ${orderedSummary()}
-                </div>
-
-                <div class="ordered-products">
-                    ${orderedProducts()}
-                </div>
-
-                <div class="ordered-products-second">
-                    ${orderedProducts()}
-                </div>
-
-                <div class="order-summary-section">
-                    ${orderedSummary()}
-                </div>
-            </section>
-        </div>
-    `;
-document.querySelector('.js-checkout-body-div').innerHTML=bodyHtml;
-
-function orderedProducts(){
-    const orderedProductHtml=
-    `
-        <div class="checklist-div">
-            <div class="delivery-date-selected">
-                Delivery date: Tuesday, July 9
-            </div>
-            <div class="checkout-display">
-                <div>
-                    <img src="../images/products/athletic-cotton-socks-6-pairs.jpg" class="products-img">
-                </div>
-                <div>
-                    <div class="product-title">
-                        Black and Gray Athletic Cotton Socks - 6 Pairs
-                    </div>
-                    <div class="product-cost">
-                        $10.90
-                    </div>
-                    <div class="quantity-div">
-                        <div class="quantity-txt">
-                            Quantity:
+document.querySelector('.js-checkout-count').innerHTML=`${cart.length} Items`;
+let bodyHtml='';
+products.forEach((product) =>{
+    const productId=product.id;
+    cart.forEach((cartItem) =>{
+        const cartProductId=cartItem.productId;
+        if(productId === cartProductId){
+            bodyHtml+=
+                `
+                    <div class="product-div">
+                        <div class="delivery-selected-head">
+                            Deliver date: Friday, July 12
                         </div>
-                        <div>1</div>
-                        <div class="update-btn">
-                            Update
-                        </div>
-                        <div class="delete-btn">
-                            Delete
-                        </div>
-                    </div>
-                </div>
-                <div class="delivery-div">
-                    ${deliverOption()}
-                </div>
-            </div>
-            <div class="delivery-div-second">
-                ${deliverOption()}
-            </div>
-        </div>
-    `;
-    return orderedProductHtml;
-}
+                        <div class="product-details-div">
+                            <div>
+                                <img src="../${product.image}" class="product-img">
+                            </div>
+                            <div class="product-details">
+                                <div class="product-name">
+                                    ${product.name}
+                                </div>
+                                <div class="product-cost">
+                                    ${renderPrice(product.priceCents)}
+                                </div>
 
-function deliverOption(){
-    const deliverOptionHtml=
-    `
-        <div class="option-head">
-            Choose A delivery option:
-        </div>
-        <div class="select-option">
-            <input type="radio" name="select-delivery-option" class="radio">
-            <div>
-                <div class="delivery-date">
-                    Wednesday, July 17
-                </div>
-                <div class="price">
-                    FREE Shipping
-                </div>
-            </div>
-        </div>
-        <div class="select-option">
-            <input type="radio" name="select-delivery-option" class="radio">
-            <div>
-                <div class="delivery-date">
-                    Wednesday, July 11
-                </div>
-                <div class="price">
-                    $4.99 - Shipping
-                </div>
-            </div>
-        </div>
-        <div class="select-option">
-            <input type="radio" name="select-delivery-option" class="radio">
-            <div>
-                <div class="delivery-date">
-                    Wednesday, July 9
-                </div>
-                <div class="price">
-                    $9.99 - Shipping
-                </div>
-            </div>
-        </div>
-    `;
-    return deliverOptionHtml;
-}
+                                <div class="quantity-div">
+                                    <div class="quantity-txt">Quantity:</div>
+                                    <label class="js-cart-quantity-${product.id}">${cartItem.quantity}</label>
+                                    <input type="number" class="input-quantity" value="1">
+                                    <div class="update-btn js-update-btn" data-product-id="${product.id}">Update</div>
+                                    <div class="delete-btn">Delete</div>
+                                </div>
+                            </div>
+                            <div class="delivery-div">
+                                <div class="option-head">
+                                    Choose A delivery option:
+                                </div>
+                                <div class="select-option">
+                                    <input type="radio" name="select-delivery-option-${product.id}" class="radio" checked>
+                                    <div>
+                                        <div class="delivery-date">
+                                            Wednesday, July 17
+                                        </div>
+                                        <div class="shipping-price">
+                                            FREE Shipping
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-option">
+                                    <input type="radio" name="select-delivery-option-${product.id}" class="radio">
+                                    <div>
+                                        <div class="delivery-date">
+                                            Wednesday, July 11
+                                        </div>
+                                        <div class="shipping-price">
+                                            $4.99 - Shipping
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-option">
+                                    <input type="radio" name="select-delivery-option-${product.id}" class="radio">
+                                    <div>
+                                        <div class="delivery-date">
+                                            Wednesday, July 9
+                                        </div>
+                                        <div class="shipping-price">
+                                            $9.99 - Shipping
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        }
+    });
+});
+document.querySelector('.js-cart-list').innerHTML=bodyHtml;
 
-function orderedSummary(){
-    const orderedSummaryHtml=
-    `
-        <div class="order-summary-div">
-            <div class="order-summary-title">
-                Order Summary
-            </div>
-            <div class="items-cost-div">
-                <div class="items-count">
-                    Items (0):
-                </div>
-                <div class="items-cost">
-                    $0.00
-                </div>
-            </div>
-            <div class="shipping-cost-div">
-                <div class="shipping-handling">
-                    Shipping & handling:
-                </div>
-                <div class="shipping-cost">
-                    $0.00
-                </div>
-            </div>
-            <div class="divider">
-                <div></div>
-                <button class="underline"></button>
-            </div>
-            <div class="before-tax-div">
-                <div class="total-before-tax">
-                    Total before tax:
-                </div>
-                <div class="total-before-tax-cost">
-                    $0.00
-                </div>
-            </div>
-            <div class="tax-div">
-                <div class="estimated-tax">
-                    Estimated tax (10%):
-                </div>
-                <div class="shipping-cost">
-                    $0.00
-                </div>
-            </div>
-            <div class="divider">
-                <button class="underline2"></button>
-            </div>
-            <div class="total-div">
-                <div class="order-total">
-                    Order total:
-                </div>
-                <div class="total-cost">
-                    $0.00
-                </div>
-            </div>
-            <div class="paypal-div">
-                <div class="papypal">Use PayPal</div>
-                <input type="checkbox" name="paypal" class="pp-checkbox">
-            </div>
-            <button class="order-btn">
-                <div class="footer-txt">
-                    <div class="pay1">
-                        Pay
-                    </div>
-                    <div class="pal1">
-                        Pal
-                    </div>
-                </div>
-            </button>
-            <button class="cards-btn">g</button>
-            <div class="footer-txt">
-                <div class="powered-by">
-                    Powered by 
-                </div>
-                <div class="pay2">
-                    Pay
-                </div>
-                <div class="pal2">
-                    Pal
-                </div>
-            </div>
-        </div>
-    `;
-    return orderedSummaryHtml;
-}
+document.querySelectorAll('.js-update-btn').forEach((updateDiv) =>{
+    updateDiv.addEventListener('click',()=>{
+        const productId = updateDiv.dataset.productId;
+    });
+});

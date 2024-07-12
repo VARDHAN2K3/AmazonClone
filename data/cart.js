@@ -1,6 +1,15 @@
 import { products } from "./products.js";
 
-export const cart=[];
+export let cart;
+loadCartFromStorage();
+
+function loadCartFromStorage(){
+  cart=JSON.parse(localStorage.getItem('cart'))||[];
+}
+
+function SaveCartToStorage(){
+  localStorage.setItem('cart',JSON.stringify(cart));
+}
 
 export function addToCart(productId,dlQuantity){
     products.forEach((product) =>{
@@ -21,5 +30,5 @@ export function addToCart(productId,dlQuantity){
         }
       }
     });
-    console.log(cart);
+    SaveCartToStorage();
 }
