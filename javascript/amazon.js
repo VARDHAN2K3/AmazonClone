@@ -1,6 +1,6 @@
 import { products } from "../data/products.js";
 import { renderPrice } from "../others/price.js";
-import { cart,addToCart } from "../data/cart.js";
+import { cart,addToCart } from "../others/cart.js";
 
 renderCartCount();
 let isDisplay=false;

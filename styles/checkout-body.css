@@ -129,6 +129,11 @@
     font-size:16px;
     padding:10px 15px;
     border-radius:10px;
+    cursor: pointer;
+    transition:backgroun-color 0.15s;
+}
+.view-products-btn:hover{
+    background-color: rgb(241, 210, 37);
 }
 .os-title{
     font-weight:700;
@@ -178,15 +183,14 @@
 }
 .paypal-btn{
     width:100%;
-    padding:8px 0px 8px;
+    padding:14px 0px;
     margin-bottom:14px;
     background-color: rgb(255, 192, 55);
     border:none;
     border-radius: 6px;
     cursor:pointer;
-    font-size:20px;
-    font-style:italic;
-    font-weight:900;
+    font-size:14px;
+    
 }
 .paypal-btn:hover{
     opacity:0.90;
@@ -229,6 +233,7 @@
     }
     .delivery-div{
         grid-column: 1/span 2;
+        width:200px;
     }
 }
 @media(min-width:1190px){
