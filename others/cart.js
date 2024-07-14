@@ -25,7 +25,8 @@ export function addToCart(productId,dlQuantity){
         }else{
           cart.push({
             productId,
-            quantity:dlQuantity
+            quantity:dlQuantity,
+            option:1
           });
         }
       }

@@ -1,14 +1,14 @@
 export const deliveryOptions=[
     {
-        optionId:'a1324-143-b523',
-        option:1
+        option:1,
+        price:0.00
     },
     {
-        optionId:'b1324-143-c523',
-        option:2
+        option:2,
+        price:4.99
     },
     {
-        optionId:'c1324-143-d523',
-        option:3
+        option:3,
+        price:9.99
     }
 ];
