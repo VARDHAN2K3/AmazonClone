@@ -1,14 +1,17 @@
 export const deliveryOptions=[
     {
         option:1,
-        price:0.00
+        time:9,
+        priceCents:0
     },
     {
         option:2,
-        price:4.99
+        time:3,
+        priceCents:499
     },
     {
         option:3,
-        price:9.99
+        time:1,
+        priceCents:999
     }
 ];

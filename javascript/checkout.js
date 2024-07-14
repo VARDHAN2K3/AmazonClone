@@ -1,6 +1,5 @@
 import { cart,updateCartByQuantity,updateCartByDelete } from "../others/cart.js";
 import { renderCartItems,isEmpty,renderOrderSummary } from "./html-generators/checkout-html.js"
-import { deliveryOptions } from "../others/delivery-option.js";
 
 console.log(cart);
 renderCartItems();
@@ -24,6 +23,13 @@ document.querySelectorAll('.js-delete-btn').forEach((deleteBtn) => {
     });
 });
 
+document.querySelectorAll('.js-radio').forEach((radioBtn) => {
+    radioBtn.addEventListener('click',() => {
+        const productId = radioBtn.dataset.pI;
+        console.log(productId);
+        console.log(radioBtn.id);
+    });
+});
 
 //function
 function renderCartCount(){
