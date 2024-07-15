@@ -1,8 +1,8 @@
-.main{
-    /*width:890px;*/
+/*.main{
+    width:890px;
     margin-left:auto;
     margin-right:auto;
-}
+}*/
 .orders-title{
     font-weight:700;
     font-size:26px;
@@ -24,17 +24,22 @@
     margin-bottom:6px;
 }/*fixed*/
 .products-div{
-    padding:50px 24px;
+    padding:50px 0px 50px 24px;
 }
 .product-image{
     height:110px;
+}
+.product-details{
+    background-color: lightblue;
 }
 .product-name{
     font-weight:700;
 }
 @media(max-width:574.40px){
   .main{
-    max-width:440px;
+    max-width:500px;
+    margin-left: 14px;
+    margin-right: 14px;
   }
   .product{
     display:grid;
