@@ -4,83 +4,92 @@ import { cart } from "../../others/cart.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../../others/delivery-option.js";
 
-
-
 //prices
 let itemsPrice=0;
 let shippingPrice=0;
 let totalBeforeTax=0;
 let tax=0;
 let total=0;
-let bodyHtml='';
 
+let bodyHtml='';
 export function renderCartItems(){
     if(!cart.length){
         isEmpty();
-    }
-    cart.forEach((cartItem) => {
-        const cartProductId=cartItem.productId;
-        products.forEach((product) => {
-            const productId=product.id;
-            if(cartProductId === productId){
-                bodyHtml+=
-                `
-                    <div class="product-div js-product-div-${productId}">
-                        <div class="delivery-selected-head js-delivery-date-opted-${productId}">
-                            Deliver date: Friday, July 12
+    }else{
+        let matching;
+        cart.forEach((cartItem) => {
+            products.forEach((product) => {
+                if(cartItem.productId === product.id){
+                    matching = product;
+                }
+            });
+            let deliveryOptionMatch;
+            deliveryOptions.forEach((dOption) => {
+                if(dOption.option === cartItem.option){
+                    deliveryOptionMatch = dOption;
+                }
+            });
+            const today = dayjs();
+            const dateString = (today.add(deliveryOptionMatch.time,'day'))
+                .format('dddd, MMMM D');
+            bodyHtml+=
+            `
+                <div class="product-div js-product-div-${matching.id}">
+                    <div class="delivery-selected-head">
+                        Deliver date: ${dateString}
+                    </div>
+                    <div class="product-details-div">
+                        <div>
+                            <img src="../${matching.image}" class="product-img">
                         </div>
-                        <div class="product-details-div">
-                            <div>
-                                <img src="../${product.image}" class="product-img">
+                        <div class="product-details">
+                            <div class="product-name">
+                                ${matching.name}
                             </div>
-                            <div class="product-details">
-                                <div class="product-name">
-                                    ${product.name}
-                                </div>
-                                <div class="product-cost">
-                                    ${renderPrice(product.priceCents)}
-                                </div>
-                                <div class="quantity-div">
-                                    <div class="quantity-txt">Quantity:</div>
-                                    <div class="js-quantity-div-${productId}">
-                                        <label class="cart-quantity">${cartItem.quantity}</label>
-                                    </div>
-                                    <button class="update-btn js-update-btn" data-product-id="${productId}">Update</button>
-                                    <button class="delete-btn js-delete-btn" data-product-id=${productId}>Delete</button>
-                                </div>
+                            <div class="product-cost">
+                                ${renderPrice(matching.priceCents)}
                             </div>
-                            
-                            <div class="delivery-div js-delivery-div">
-                                <div class="option-head">
-                                    Choose A delivery option:
+                            <div class="quantity-div">
+                                <div class="quantity-txt">Quantity:</div>
+                                <div class="js-quantity-div-${matching.id}">
+                                    <label class="cart-quantity">${cartItem.quantity}</label>
                                 </div>
-                                ${deliveryOption(productId,cartItem.option)}
+                                <button class="update-btn js-update-btn" data-product-id="${matching.id}">Update</button>
+                                <button class="delete-btn js-delete-btn" data-product-id=${matching.id}>Delete</button>
                             </div>
+                        </div>
+                        
+                        <div class="delivery-div js-delivery-div">
+                            <div class="option-head">
+                                Choose A delivery option:
+                            </div>
+                            ${deliveryOption(matching.id,cartItem.option)}
                         </div>
                     </div>
-                `;
-            }
+                </div>
+            `;
+            document.querySelector('.js-cart-list').innerHTML=bodyHtml;
         });
-    });
-    document.querySelector('.js-cart-list').innerHTML=bodyHtml;
+    }
 }
 
-function deliveryOption(productId,selectedOption){
+function deliveryOption(productId,theOption){
     let deliveryOptionsHtml='';
     
-    deliveryOptions.forEach((option) => {
+    deliveryOptions.forEach((dOption) => {
         const today = dayjs();
-        const dateString = (today.add(option.time,'day'))
+        const dateString = (today.add(dOption.time,'day'))
             .format('dddd, MMMM D');
-        const price = option.priceCents 
-            ? renderPrice(option.priceCents) 
+        const price = dOption.priceCents 
+            ? renderPrice(dOption.priceCents) 
             : 'FREE';
-        const isChecked = selectedOption === option.option 
+        const isChecked = theOption === dOption.option 
             ? 'checked' 
             : '';
         deliveryOptionsHtml +=
         `
-            <div class="select-option">
+            <div class="select-option js-select-option"
+            data-product-id="${productId}" data-delivery-option="${dOption.option}">
                 <input type="radio" name="select-delivery-option-${productId}" class="radio js-radio" ${isChecked}>
                 <div class="delivery-info">
                     <div class="delivery-date">
