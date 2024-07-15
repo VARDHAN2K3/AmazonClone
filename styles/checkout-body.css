@@ -183,7 +183,7 @@
     width:19px;
     margin-left:8px;
 }
-.paypal-btn{
+.place-order-btn{
     width:100%;
     padding:14px 0px;
     margin-bottom:14px;
@@ -192,10 +192,13 @@
     border-radius: 6px;
     cursor:pointer;
     font-size:14px;
-    
 }
-.paypal-btn:hover{
+.place-order-btn{
     opacity:0.90;
+}
+.place-order-btn2{
+    opacity: 0.4;
+    cursor:default;
 }
 .pay{
     color:rgb(0, 0, 121);

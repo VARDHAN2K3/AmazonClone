@@ -77,6 +77,24 @@ function renderCheckOut(){
 
     orderSummaryCalculation();
 
+    if(!cart.length){
+        document.querySelector('.js-place-order-div').innerHTML =
+        `
+            <button class="place-order-btn place-order-btn2">
+                Place your order
+            </button>
+        `;
+    }else if(cart.length){
+        document.querySelector('.js-place-order-div').innerHTML =
+        `
+            <a href="../html/orders.html">
+                <button class="place-order-btn">
+                    Place your order
+                </button>
+            </a>
+        `;
+    }
+
     renderCartCount();
 
     //update quantity
