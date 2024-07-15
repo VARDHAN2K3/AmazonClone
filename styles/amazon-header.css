@@ -92,6 +92,9 @@
   height:14px;
   margin-right:6px;
 }
+.orders-link{
+  text-decoration: none;
+}
 .returns-orders-link{
   border:1px solid black;
   height:50px;
