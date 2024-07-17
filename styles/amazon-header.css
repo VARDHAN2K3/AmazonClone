@@ -24,6 +24,9 @@
   height:32px;
   margin-top:10px;
 }
+.mobile-returns-orders-link{
+  text-decoration: none;
+}
 .amazon-logo-mobile-link{
   display: none;
   border:1px solid black;

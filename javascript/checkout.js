@@ -4,8 +4,9 @@ import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
 import { deliveryOptions } from "../../others/delivery-option.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+import {moveToOrdersList} from "../others/ordersList.js";
 
-//console.log(cart);
+console.log(cart.cartItems);
 
 let itemsPrice = 0;
 let shippinPrice = 0;
@@ -78,22 +79,14 @@ function renderCheckOut(){
     orderSummaryCalculation();
 
     if(!cart.Length()){
-        document.querySelector('.js-place-order-div').innerHTML =
-        `
-            <button class="place-order-btn place-order-btn2">
-                Place your order
-            </button>
-        `;
-    }else if(cart.Length()){
-        document.querySelector('.js-place-order-div').innerHTML =
-        `
-            <a href="../html/orders.html">
-                <button class="place-order-btn">
-                    Place your order
-                </button>
-            </a>
-        `;
+        document.querySelector('.js-place-order-btn').classList.add('place-order-btn2');
     }
+    document.querySelector('.js-place-order-btn').addEventListener('click',() => {
+        moveToOrdersList(total);
+        localStorage.removeItem('cart');
+        console.log(cart.cartItems);
+        open('../html/orders.html',EventTarget="_self");
+    });
 
     renderCartCount();
 

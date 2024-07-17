@@ -5,14 +5,32 @@ class Product{
   rating;
   priceCents;
 
-  constructor(productItems){
-    this.id = productItems.id;
-    this.image = productItems.image;
-    this.name = productItems.name;
-    this.rating = productItems.rating;
-    this.priceCents = productItems.priceCents;
+  constructor(productDetails){
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+  displayExtraInfo(){
+    return ``;
   }
 }
+
+class Clothing extends Product{
+  sizeChartLink;
+
+  constructor(productDetails){
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  displayExtraInfo(){
+    return `<a href="../images/clothing-size-chart.png" target="_blank">Size Chart</a>`;
+  }
+}
+
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -672,6 +690,9 @@ export const products = [
       "mens"
     ]
   }
-].map((productItems) => {
-  return new Product(productItems);
+].map((productDetails) => {
+  if(productDetails.type === 'clothing'){
+    return new Clothing(productDetails);
+  }
+  return new Product(productDetails);
 });

@@ -55,6 +55,10 @@
   box-shadow:1px 1px 5px rgba(0,0,0,0.15);
   cursor:pointer;
 }
+.size-chart-div{
+  font-size:14px;
+  margin-top:16px;
+}
 .checkmark-icon{
   height:24px;
   margin-right:8px;

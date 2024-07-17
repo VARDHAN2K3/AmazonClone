@@ -2,18 +2,9 @@
 import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
 import {cart} from "../others/cart.js";
+import { getMobileHead } from "../others/hamberger-menu.js";
 
-let isDisplay=false;
-document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
-  const mobileHeader = document.querySelector('.js-mobile-header-div');
-  if(!isDisplay){
-    mobileHeader.classList.add('mobile-header-div-display');
-    isDisplay = true;
-  }else{
-    mobileHeader.classList.remove('mobile-header-div-display');
-    isDisplay = false;
-  }
-});
+getMobileHead();
 
 let html='';
 products.forEach((product) => {
@@ -36,7 +27,7 @@ html+=
         ${renderPrice(product.priceCents)}
         </div>
         <div class="quantity-selection-display">
-        <select class="quantity-selection js-quantity-selection-${product.id}">
+          <select class="quantity-selection js-quantity-selection-${product.id}">
             <option selected value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -47,7 +38,10 @@ html+=
             <option value="8">8</option>
             <option value="9">9</option>
             <option value="10">10</option>
-        </select>
+          </select>
+        </div>
+        <div class="size-chart-div">
+          ${product.displayExtraInfo()}
         </div>
         <div class="added-msg js-added-msg-${product.id}"></div>
         <!-- use productId in data instead for uniqueness-->
