@@ -1,3 +1,18 @@
+class Product{
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productItems){
+    this.id = productItems.id;
+    this.image = productItems.image;
+    this.name = productItems.name;
+    this.rating = productItems.rating;
+    this.priceCents = productItems.priceCents;
+  }
+}
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -657,4 +672,6 @@ export const products = [
       "mens"
     ]
   }
-];
+].map((productItems) => {
+  return new Product(productItems);
+});

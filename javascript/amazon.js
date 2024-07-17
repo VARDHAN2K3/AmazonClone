@@ -1,7 +1,7 @@
 //import { renderProducts } from "./html-generators/amazon-html.js";
 import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
-import { cart,addToCart } from "../others/cart.js";
+import {cart} from "../others/cart.js";
 
 let isDisplay=false;
 document.querySelector('.js-hamburger-menu').addEventListener('click',() => {
@@ -68,7 +68,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
     
     const dlQuantity = Number(document.querySelector(`.js-quantity-selection-${productId}`).value);
 
-    addToCart(productId,dlQuantity);
+    cart.addToCart(productId,dlQuantity);
 
     renderAddedMsg(productId,dlQuantity);
     renderCartCount();
@@ -88,6 +88,6 @@ function renderAddedMsg(productId,dlQuantity){
 }
 
 function renderCartCount(){
-  document.querySelector('.js-cart-count').innerHTML=cart.length;
-  document.querySelector('.js-mobile-cart-count').innerHTML=cart.length;
+  document.querySelector('.js-cart-count').innerHTML=cart.Length();
+  document.querySelector('.js-mobile-cart-count').innerHTML=cart.Length();
 }

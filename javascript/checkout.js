@@ -1,11 +1,11 @@
 //import { renderCartItems,isEmpty,renderOrderSummary } from "./html-generators/checkout-html.js";
-import { cart,updateCartByQuantity,updateCartByDelete, updateDeliveryOptionInCart } from "../others/cart.js";
+import { cart } from "../others/cart.js";
 import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
 import { deliveryOptions } from "../../others/delivery-option.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
-console.log(cart);
+//console.log(cart);
 
 let itemsPrice = 0;
 let shippinPrice = 0;
@@ -16,11 +16,11 @@ let total = 0;
 function renderCheckOut(){
 
     let bodyHtml='';
-    if(!cart.length){
+    if(!cart.Length()){
         isEmpty();
     }else{
         let matching;
-        cart.forEach((cartItem) => {
+        cart.cartItems.forEach((cartItem) => {
             products.forEach((product) => {
                 if(cartItem.productId === product.id){
                     matching = product;
@@ -77,14 +77,14 @@ function renderCheckOut(){
 
     orderSummaryCalculation();
 
-    if(!cart.length){
+    if(!cart.Length()){
         document.querySelector('.js-place-order-div').innerHTML =
         `
             <button class="place-order-btn place-order-btn2">
                 Place your order
             </button>
         `;
-    }else if(cart.length){
+    }else if(cart.Length()){
         document.querySelector('.js-place-order-div').innerHTML =
         `
             <a href="../html/orders.html">
@@ -117,7 +117,7 @@ function renderCheckOut(){
     document.querySelectorAll('.js-select-option').forEach((element) => {
         element.addEventListener('click',() =>{
             const {productId,deliveryOption} = element.dataset;
-            updateDeliveryOptionInCart(productId,deliveryOption);
+            cart.updateDeliveryOptionInCart(productId,deliveryOption);
             renderCheckOut();
         });
     });
@@ -172,8 +172,8 @@ function renderCheckOut(){
     }
 
     function renderCartCount(){
-        document.querySelector('.js-checkout-count').innerHTML=`${cart.length} Items`;
-        document.querySelector('.js-cart-count-label').innerHTML=cart.length;
+        document.querySelector('.js-checkout-count').innerHTML=`${cart.Length()} Items`;
+        document.querySelector('.js-cart-count-label').innerHTML=cart.Length();
     }
 
     function renderOrderSummary(){
@@ -208,7 +208,7 @@ function renderCheckOut(){
         let selectedQuantity;
         if(updateBtn.innerText === "Update"){
             let quantity;
-            cart.forEach((cartItem) =>{
+            cart.cartItems.forEach((cartItem) =>{
                 if(cartItem.productId === productId){
                     quantity=cartItem.quantity;
                 }
@@ -224,19 +224,19 @@ function renderCheckOut(){
             }else if(selectedQuantity > 0){
                 quantityDiv.innerHTML = `<label class="cart-quantity">${selectedQuantity}</label>`;
                 updateBtn.innerHTML="Update";
-                updateCartByQuantity(productId,selectedQuantity);
+                cart.updateCartByQuantity(productId,selectedQuantity);
                 renderCheckOut();
             }
         }
     }
 
     function deleteItem(productId){
-        updateCartByDelete(productId);
+        cart.updateCartByDelete(productId);
         const productDiv = document.querySelector(`.js-product-div-${productId}`);
         productDiv.remove();
         renderCartCount();
         renderCheckOut();
-        if(!cart.length){
+        if(!cart.Length()){
             isEmpty();
         }
     }
@@ -247,7 +247,7 @@ function renderCheckOut(){
         totalBeforeTax = 0;
         tax = 0;
         total = 0;
-        cart.forEach((cartItem) => {
+        cart.cartItems.forEach((cartItem) => {
             products.forEach((product) => {
                 if(cartItem.productId === product.id){
                     itemsPrice += (product.priceCents * cartItem.quantity);
