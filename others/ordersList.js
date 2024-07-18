@@ -42,5 +42,6 @@ export function moveToOrdersList(total){
         arrivalDay,
         quantity
     });
+    localStorage.removeItem('cart');
     saveOrdersInStorage();
 }

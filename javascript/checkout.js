@@ -4,7 +4,7 @@ import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
 import { deliveryOptions } from "../../others/delivery-option.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
-import {moveToOrdersList} from "../others/ordersList.js";
+import {moveToOrdersList,orders} from "../others/ordersList.js";
 
 console.log(cart.cartItems);
 
@@ -78,16 +78,6 @@ function renderCheckOut(){
 
     orderSummaryCalculation();
 
-    if(!cart.Length()){
-        document.querySelector('.js-place-order-btn').classList.add('place-order-btn2');
-    }
-    document.querySelector('.js-place-order-btn').addEventListener('click',() => {
-        moveToOrdersList(total);
-        localStorage.removeItem('cart');
-        console.log(cart.cartItems);
-        open('../html/orders.html',EventTarget="_self");
-    });
-
     renderCartCount();
 
     //update quantity
@@ -111,6 +101,7 @@ function renderCheckOut(){
         element.addEventListener('click',() =>{
             const {productId,deliveryOption} = element.dataset;
             cart.updateDeliveryOptionInCart(productId,deliveryOption);
+            cart.SaveCartToStorage();
             renderCheckOut();
         });
     });
@@ -260,3 +251,11 @@ function renderCheckOut(){
 } //renderCheckOut(); ends
 
 renderCheckOut();
+
+if(!cart.Length()){
+    document.querySelector('.js-place-order-btn').classList.add('place-order-btn2');
+}
+document.querySelector('.js-place-order-btn').addEventListener('click',() => {
+    moveToOrdersList(total);
+    open('../orders.html',EventTarget="_self");
+});
