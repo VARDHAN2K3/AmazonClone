@@ -2,7 +2,7 @@
 import { products } from "../../data/products.js";
 import { renderPrice } from "../../others/price.js";
 import {cart} from "../others/cart.js";
-import { getMobileHead } from "../others/hamberger-menu.js";
+import { getMobileHead,renderCartCount } from "../others/shared-function.js";
 
 getMobileHead();
 
@@ -81,7 +81,3 @@ function renderAddedMsg(productId,dlQuantity){
   },2000);
 }
 
-function renderCartCount(){
-  document.querySelector('.js-cart-count').innerHTML=cart.Length();
-  document.querySelector('.js-mobile-cart-count').innerHTML=cart.Length();
-}

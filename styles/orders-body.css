@@ -14,8 +14,6 @@ body{
 }
 .ordered-items-div{
     margin-bottom:54px;
-}
-.ordered-items{
     border:1px solid rgb(216, 215, 215);
     border-radius:10px;
 }
