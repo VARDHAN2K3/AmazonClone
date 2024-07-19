@@ -2,6 +2,7 @@ import { getMobileHead,renderCartCount } from "../others/shared-function.js";
 import {orders} from "../others/ordersList.js";
 import {renderPrice} from "../others/price.js";
 import { products } from "../data/products.js";
+import { cart } from "../others/cart.js";
 
 getMobileHead();
 renderCartCount();
@@ -45,8 +46,38 @@ if(!(orders.length)){
     document.querySelector('.js-display-orders').innerHTML = ordersHtml;
 }
 
+document.querySelectorAll('.js-buy-again-btn').forEach(btn => {
+    btn.addEventListener('click',() => {
+        const productId = btn.dataset.productId;
+        addedMsg(btn);
+        cart.addToCart(productId,1);
+        renderCartCount();
+    });
+});
+
+document.querySelectorAll('.js-track-btn').forEach(track => {
+    track.addEventListener('click',() =>{
+        open('track.html', EventTarget="_self");
+    });
+});
+
 
 //functions
+function isEmpty(){
+    ordersHtml=
+    `
+        <div class="empty-list-txt">
+            No Orders.
+        </div>
+        <a href="./amazon.html">
+            <button class="view-products-btn">
+                View products
+            </button>
+        </a>
+    `;
+    document.querySelector('.js-display-orders').innerHTML = ordersHtml;
+}
+
 function renderProducts(ids,arrivalDay,quantity){
     let productHtml='';
     ids.forEach((id,index) => {
@@ -70,7 +101,7 @@ function renderProducts(ids,arrivalDay,quantity){
                     <div class="quantity">
                         Quantity: ${quantity[index]}
                     </div>
-                    <button class="buy-again-button">
+                    <button class="buy-again-button js-buy-again-btn" data-product-id="${matching.id}">
                         <img src="../images/icons/buy-again.png" class="buy-again-img">
                         <div class="buy-again-txt">
                             Buy it again
@@ -78,7 +109,7 @@ function renderProducts(ids,arrivalDay,quantity){
                     </button>
                 </div>
                 <div class="track-div">
-                    <button class="track-btn">
+                    <button class="track-btn js-track-btn">
                         Track package
                     </button>
                 </div>
@@ -88,17 +119,20 @@ function renderProducts(ids,arrivalDay,quantity){
     return productHtml;
 }
 
-function isEmpty(){
-    ordersHtml=
+function addedMsg(btn){
+    btn.innerHTML = 
     `
-        <div class="empty-list-txt">
-            No Orders.
+        <div class="added-txt">
+            &#10004; Added
         </div>
-        <a href="./amazon.html">
-            <button class="view-products-btn">
-                View products
-            </button>
-        </a>
     `;
-    document.querySelector('.js-display-orders').innerHTML = ordersHtml;
+    setTimeout(() => {
+        btn.innerHTML =
+        `
+            <img src="../images/icons/buy-again.png" class="buy-again-img">
+            <div class="buy-again-txt">
+                Buy it again
+            </div>
+        `;
+    },2000);
 }

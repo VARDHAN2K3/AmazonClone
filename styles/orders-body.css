@@ -82,8 +82,12 @@ body{
     height:26px;
     margin-right:16px;
 }
-.buy-again-txt{
+.buy-again-txt,
+.added-txt{
     font-size:15px;
+}
+.added-txt{
+    margin:2px 30px;
 }
 .track-btn{
     font-size:15px;
