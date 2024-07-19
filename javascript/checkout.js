@@ -80,6 +80,10 @@ function renderCheckOut(){
 
     renderCartCount();
 
+    if(!cart.Length()){
+        document.querySelector('.js-place-order-btn').classList.add('place-order-btn2');
+    }
+
     //update quantity
     document.querySelectorAll('.js-update-btn').forEach((updateBtn) =>{
         updateBtn.addEventListener('click',()=>{
@@ -250,13 +254,11 @@ function renderCheckOut(){
     }
 } //renderCheckOut(); ends
 
-renderCheckOut();
-
-if(!cart.Length()){
-    document.querySelector('.js-place-order-btn').classList.add('place-order-btn2');
-}
 document.querySelector('.js-place-order-btn').addEventListener('click',() => {
     moveToOrdersList(total);
     localStorage.removeItem('cart');
     open('../orders.html',EventTarget="_self");
 });
+
+
+renderCheckOut();

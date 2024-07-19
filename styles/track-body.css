@@ -1,0 +1,9 @@
+body{
+    font-family:Arial;
+    padding-top:70px;
+}
+.main-div{
+    max-width:890px;
+    margin-left:20px;
+    margin-right:20px;
+}
