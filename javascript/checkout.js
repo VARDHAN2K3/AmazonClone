@@ -257,5 +257,6 @@ if(!cart.Length()){
 }
 document.querySelector('.js-place-order-btn').addEventListener('click',() => {
     moveToOrdersList(total);
+    localStorage.removeItem('cart');
     open('../orders.html',EventTarget="_self");
 });

@@ -8,38 +8,42 @@ renderCartCount();
 console.log(orders);
 
 let ordersHtml ='';
-orders.forEach(order =>{
-    ordersHtml+=
-    `
-        <div class="ordered-items-div">
-            <section class="order-details">
-                <div class="todays-date">
-                    Order Placed:
-                    <div class="date">
-                        ${order.orderPlaced}
+if(!(orders.length)){
+    isEmpty();
+}else{
+    orders.forEach(order =>{
+        ordersHtml+=
+        `
+            <div class="ordered-items-div">
+                <section class="order-details">
+                    <div class="todays-date">
+                        Order Placed:
+                        <div class="date">
+                            ${order.orderPlaced}
+                        </div>
                     </div>
-                </div>
-                <div class="total-price">
-                    Total: 
-                    <div class="price">
-                        ${renderPrice(order.total)}
+                    <div class="total-price">
+                        Total: 
+                        <div class="price">
+                            ${renderPrice(order.total)}
+                        </div>
                     </div>
-                </div>
-                <div class="order-id">
-                    Order ID: 
-                    <div class="id">
-                        ${order.uid}
+                    <div class="order-id">
+                        Order ID: 
+                        <div class="id">
+                            ${order.uid}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="products-div">
-                ${renderProducts(order.ids,order.arrivalDay,order.quantity)} 
-            </section>
-        </div>
-    `;
-});
-document.querySelector('.js-display-orders').innerHTML = ordersHtml;
+                <section class="products-div">
+                    ${renderProducts(order.ids,order.arrivalDay,order.quantity)} 
+                </section>
+            </div>
+        `;
+    });
+    document.querySelector('.js-display-orders').innerHTML = ordersHtml;
+}
 
 
 //functions
@@ -82,4 +86,19 @@ function renderProducts(ids,arrivalDay,quantity){
         `;
     });
     return productHtml;
+}
+
+function isEmpty(){
+    ordersHtml=
+    `
+        <div class="empty-list-txt">
+            No Orders.
+        </div>
+        <a href="./amazon.html">
+            <button class="view-products-btn">
+                View products
+            </button>
+        </a>
+    `;
+    document.querySelector('.js-display-orders').innerHTML = ordersHtml;
 }

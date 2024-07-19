@@ -12,6 +12,23 @@ body{
     font-size:26px;
     margin-bottom:20px;
 }
+.empty-list-txt{
+    font-size:16px;
+    color:rgb(94, 94, 94);
+    margin-bottom:8px;
+}
+.view-products-btn{
+    background-color: rgb(252, 222, 51);
+    border:none;
+    font-size:16px;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor: pointer;
+    transition:backgroun-color 0.15s;
+}
+.view-products-btn:hover{
+    background-color: rgb(241, 210, 37);
+}
 .ordered-items-div{
     margin-bottom:54px;
     border:1px solid rgb(216, 215, 215);
