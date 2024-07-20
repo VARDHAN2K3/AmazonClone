@@ -6,8 +6,6 @@ import { deliveryOptions } from "../../others/delivery-option.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import {moveToOrdersList,orders} from "../others/ordersList.js";
 
-console.log(cart.cartItems);
-
 let itemsPrice = 0;
 let shippinPrice = 0;
 let totalBeforeTax = 0;

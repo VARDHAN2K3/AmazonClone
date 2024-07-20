@@ -3,16 +3,15 @@ import {orders} from "../others/ordersList.js";
 import {renderPrice} from "../others/price.js";
 import { products } from "../data/products.js";
 import { cart } from "../others/cart.js";
+import { tracking } from "../others/track-item.js";
 
 getMobileHead();
 renderCartCount();
-console.log(orders);
-
 let ordersHtml ='';
 if(!(orders.length)){
     isEmpty();
 }else{
-    orders.forEach(order =>{
+    orders.forEach((order,i) =>{
         ordersHtml+=
         `
             <div class="ordered-items-div">
@@ -46,6 +45,7 @@ if(!(orders.length)){
     document.querySelector('.js-display-orders').innerHTML = ordersHtml;
 }
 
+//buy again button
 document.querySelectorAll('.js-buy-again-btn').forEach(btn => {
     btn.addEventListener('click',() => {
         const productId = btn.dataset.productId;
@@ -55,8 +55,11 @@ document.querySelectorAll('.js-buy-again-btn').forEach(btn => {
     });
 });
 
+//track button
 document.querySelectorAll('.js-track-btn').forEach(track => {
     track.addEventListener('click',() =>{
+        const {productId,arrivalDay,quantity} = track.dataset;
+        tracking(productId,arrivalDay,quantity);
         open('track.html', EventTarget="_self");
     });
 });
@@ -109,7 +112,9 @@ function renderProducts(ids,arrivalDay,quantity){
                     </button>
                 </div>
                 <div class="track-div">
-                    <button class="track-btn js-track-btn">
+                    <button class="track-btn js-track-btn" data-product-id="${matching.id}"
+                    data-arrival-day="${arrivalDay[index]}"
+                    data-quantity="${quantity[index]}">
                         Track package
                     </button>
                 </div>

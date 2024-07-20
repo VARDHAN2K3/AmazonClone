@@ -7,12 +7,12 @@ body{
     margin-left:20px;
     margin-right:20px;
 }
-.orders-link{
+.orders-link-txt{
     text-decoration: underline;
     color:rgb(12, 143, 194);
     transition:color 0.15s;
 }
-.orders-link:hover{
+.orders-link-txt:hover{
     color:rgb(180, 65, 65);
 }
 .delivery-date{
@@ -26,9 +26,8 @@ body{
 }
 .product-image{
     margin-top:30px;
-    height:130px;
-    object-fit:cover;
-    max-width:100%;
+    height:100px;
+    object-fit:contain;
     margin-bottom:50px;
 }
 .progress-bar-txt-div{
