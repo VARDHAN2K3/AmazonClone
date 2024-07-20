@@ -7,11 +7,12 @@ import { tracking } from "../others/track-item.js";
 
 getMobileHead();
 renderCartCount();
+
 let ordersHtml ='';
 if(!(orders.length)){
     isEmpty();
 }else{
-    orders.forEach((order,i) =>{
+    for(let i=(orders.length-1);i>=0;i--){
         ordersHtml+=
         `
             <div class="ordered-items-div">
@@ -19,29 +20,29 @@ if(!(orders.length)){
                     <div class="todays-date">
                         Order Placed:
                         <div class="date">
-                            ${order.orderPlaced}
+                            ${(orders[i]).orderPlaced}
                         </div>
                     </div>
                     <div class="total-price">
                         Total: 
                         <div class="price">
-                            ${renderPrice(order.total)}
+                            ${renderPrice((orders[i]).total)}
                         </div>
                     </div>
                     <div class="order-id">
                         Order ID: 
                         <div class="id">
-                            ${order.uid}
+                            ${(orders[i]).uid}
                         </div>
                     </div>
                 </section>
 
                 <section class="products-div">
-                    ${renderProducts(order.ids,order.arrivalDay,order.quantity)} 
+                    ${renderProducts((orders[i]).ids,(orders[i]).arrivalDay,(orders[i]).quantity)} 
                 </section>
             </div>
         `;
-    });
+    }
     document.querySelector('.js-display-orders').innerHTML = ordersHtml;
 }
 
