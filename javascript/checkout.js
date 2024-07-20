@@ -221,6 +221,7 @@ function renderCheckOut(){
         const productDiv = document.querySelector(`.js-product-div-${productId}`);
         productDiv.remove();
         renderCartCount();
+        cart.SaveCartToStorage();
         renderCheckOut();
         if(!cart.Length()){
             isEmpty();
@@ -253,9 +254,11 @@ function renderCheckOut(){
 } //renderCheckOut(); ends
 
 document.querySelector('.js-place-order-btn').addEventListener('click',() => {
-    moveToOrdersList(total);
-    localStorage.removeItem('cart');
-    open('../orders.html',EventTarget="_self");
+    if(cart.Length()){
+        moveToOrdersList(total);
+        localStorage.removeItem('cart');
+        open('../orders.html',EventTarget="_self");
+    }
 });
 
 
