@@ -15,6 +15,9 @@ class Product{
   displayExtraInfo(){
     return ``;
   }
+  getColorSize(){
+    return '';
+  }
 }
 
 class Clothing extends Product{
@@ -26,7 +29,34 @@ class Clothing extends Product{
   }
 
   displayExtraInfo(){
-    return `<a href="../images/clothing-size-chart.png" target="_blank">Size Chart</a>`;
+    return `<a href="../${this.sizeChartLink}" target="_self">Size Chart</a>`;
+  }
+}
+
+class Hoodie extends Product{
+  
+  getColorSize(){
+    return `
+    <div>
+      <button>
+        Yellow
+      </button>
+      <button>
+        Teal
+      </button>
+    </div>
+    <div>
+      <button>
+        S
+      </button>
+      <button>
+        M
+      </button>
+      <button>
+        L
+      </button>
+    </div>
+    `;
   }
 }
 
@@ -691,6 +721,15 @@ export const products = [
     ]
   }
 ].map((productDetails) => {
+  let matching;
+  productDetails.keywords.forEach(keyword => {
+    if(keyword === 'hoodies'){
+      matching = productDetails;
+    }
+  });
+  if(matching){
+    return new Hoodie(matching);
+  }
   if(productDetails.type === 'clothing'){
     return new Clothing(productDetails);
   }

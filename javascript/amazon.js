@@ -14,40 +14,49 @@ html+=
         <div class="product-image-display">
         <img class="products-image" src="../${product.image}">
         </div>
-        <div class="products-details">
-        ${product.name}
+        <div class="product-details-div">
+          <div class="products-details">
+          ${product.name}
+          </div>
+          <div class="ratings-display">
+          <div>
+              <img class="stars" src="../images/ratings/rating-${product.rating.stars * 10}.png">
+          </div>
+          <div class="count">${product.rating.count}</div>
+          </div>
+          <div class="product-cost">
+          ${renderPrice(product.priceCents)}
+          </div>
+          <div class="quantity-selection-display">
+            <select class="quantity-selection js-quantity-selection-${product.id}">
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
         </div>
-        <div class="ratings-display">
-        <div>
-            <img class="stars" src="../images/ratings/rating-${product.rating.stars * 10}.png">
+        <div class="additional-div">
+          <div class="size-chart-div">
+            ${product.displayExtraInfo()}
+          </div>
+          <div class="colors-size-div">
+            ${product.getColorSize()}
+          </div>
         </div>
-        <div class="count">${product.rating.count}</div>
+        <div class="product-bottom-div">
+          <div class="added-msg js-added-msg-${product.id}"></div>
+          <!-- use productId in data instead for uniqueness-->
+          <button class="add-to-cart js-add-to-cart" data-product-Id="${product.id}">
+          Add to Cart
+          </button>
         </div>
-        <div class="product-cost">
-        ${renderPrice(product.priceCents)}
-        </div>
-        <div class="quantity-selection-display">
-          <select class="quantity-selection js-quantity-selection-${product.id}">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-        </div>
-        <div class="size-chart-div">
-          ${product.displayExtraInfo()}
-        </div>
-        <div class="added-msg js-added-msg-${product.id}"></div>
-        <!-- use productId in data instead for uniqueness-->
-        <button class="add-to-cart js-add-to-cart" data-product-Id="${product.id}">
-        Add to Cart
-        </button>
     </main>
     `;
 });
