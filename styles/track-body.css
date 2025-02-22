@@ -1,7 +1,8 @@
 body{
     font-family:Arial;
     padding-top:90px;
-}
+    -webkit-tap-highlight-color: transparent;
+  }
 .main-div{
     max-width:890px;
     margin-left:20px;

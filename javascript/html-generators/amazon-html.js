@@ -4,6 +4,7 @@ import { renderPrice } from "../../others/price.js";
 export function renderProducts(){
     let html='';
     products.forEach((product) => {
+        console.log(product.image);
     html+=
         `
         <main class="products-display">
