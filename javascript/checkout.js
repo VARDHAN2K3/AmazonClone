@@ -116,7 +116,7 @@ function renderCheckOut(){
             <div class="empty-list-txt">
                 Your cart is empty.
             </div>
-            <a href="./amazon.html">
+            <a href="./index.html">
                 <button class="view-products-btn">
                     View products
                 </button>

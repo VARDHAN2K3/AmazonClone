@@ -73,7 +73,7 @@ function isEmpty(){
         <div class="empty-list-txt">
             No Orders.
         </div>
-        <a href="./amazon.html">
+        <a href="./index.html">
             <button class="view-products-btn">
                 View products
             </button>
