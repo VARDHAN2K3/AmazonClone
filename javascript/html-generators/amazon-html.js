@@ -8,7 +8,7 @@ export function renderProducts(){
         `
         <main class="products-display">
             <div class="product-image-display">
-            <img class="products-image" src="../${product.image}">
+            <img class="products-image" src="../../${product.image}">
             </div>
             <div class="products-details">
             ${product.name}
