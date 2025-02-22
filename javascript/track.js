@@ -36,6 +36,7 @@ const trackHtml =
                 Delivered
             </div>
         </div>
+        <progress id="progress" value="20" max="100"> 32% </progress>
         <!--
         <div class="progress-bar-div">
             <div class="progress-bar"></div>
