@@ -1,6 +1,6 @@
 //import { renderProducts } from "./html-generators/amazon-html.js";
-import { products } from "../../data/products.js";
-import { renderPrice } from "../../others/price.js";
+import { products } from "../data/products.js";
+import { renderPrice } from "../others/price.js";
 import {cart} from "../others/cart.js";
 import { getMobileHead,renderCartCount } from "../others/shared-function.js";
 

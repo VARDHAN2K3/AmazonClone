@@ -1,8 +1,8 @@
 //import { renderCartItems,isEmpty,renderOrderSummary } from "./html-generators/checkout-html.js";
 import { cart } from "../others/cart.js";
-import { products } from "../../data/products.js";
-import { renderPrice } from "../../others/price.js";
-import { deliveryOptions } from "../../others/delivery-option.js";
+import { products } from "../data/products.js";
+import { renderPrice } from "../others/price.js";
+import { deliveryOptions } from "../others/delivery-option.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import {moveToOrdersList,orders} from "../others/ordersList.js";
 
