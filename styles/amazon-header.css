@@ -1,0 +1,258 @@
+.header{
+  background-color: rgb(0, 0, 0);
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  height:62px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0px 16px 0px 12px;
+  z-index:100;
+}
+
+.amazon-logo-link{
+  border:1px solid black;
+  padding:26px 6px 3px;
+  cursor:pointer;
+  transition:border 0.18s;
+}
+.amazon-logo-link:hover{
+  border:1px solid white;
+}
+.amazon-logo{
+  height:32px;
+  margin-top:10px;
+}
+.mobile-returns-orders-link{
+  text-decoration: none;
+}
+.amazon-logo-mobile-link{
+  display: none;
+  border:1px solid black;
+  height:52px;
+  width:46px;
+  transition:border 0.18s;
+}
+.amazon-logo-mobile-link:hover{
+  border:1px solid white;
+}
+.amazon-logo-mobile-icon{
+  height:36px;
+  margin-top:8px;
+  margin-left:4px;
+  cursor:pointer;
+}
+
+.center-header{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.search-bar{
+  flex:1;
+  max-width:820px;
+  /*width:0;*/
+  padding:12px 15px;
+  border:2px solid black;
+  font-size:16px;
+  border-top-left-radius:6px;
+  border-bottom-left-radius:6px;
+  border-right:none;
+  outline:none;
+}
+.search-bar:focus{
+  border:2px solid rgb(248, 178, 73);
+}
+.search-icon-btn{
+  padding:6.3px;
+  width:50px;
+  border:2px solid black;
+  border-top-right-radius:6px;
+  border-bottom-right-radius:6px;
+  border-left:none;
+  background-color: rgb(255, 203, 119);
+  cursor:pointer;
+}
+.search-icon{
+  margin-top:4px;
+  height:22px;
+}
+
+.right-header{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hamburger-menu{
+  display: none;
+  cursor:pointer;
+  padding:2px;
+}
+.hamburger-menu-icon{
+  height:14px;
+  margin-right:6px;
+}
+.orders-link{
+  text-decoration: none;
+}
+.returns-orders-link{
+  border:1px solid black;
+  height:50px;
+  padding-right:8px;
+  cursor:pointer;
+  transition: border 0.18s;
+}
+.returns-orders-link:hover{
+  border:1px solid white;
+}
+.returns{
+  font-size:13px;
+  color:white;
+  margin-top:7px;
+  margin-bottom:2px;
+  margin-left:7px;
+}
+.orders{
+  font-weight:bold;
+  font-size:15px;
+  color:white;
+  margin-left:7px;
+  white-space: nowrap;
+}
+.cart-link{
+  text-decoration: none;
+}
+.cart-link-div{
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  border:1px solid rgb(7, 7, 7);
+  padding:4px;
+  height:40px;
+  transition:border 0.18s;
+}
+.cart-link-div:hover{
+  border:1px solid white;
+}
+.cart-count-position{
+  display: flex;
+  position:relative;
+}
+.cart-icon{
+  height:36px;
+}
+.cart-count{
+  color:rgb(255, 124, 2);
+  font-weight:bold;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left:8px;
+  right:0;
+  top:-3px;
+  font-size:17px;
+  padding:2px 4px;
+}
+.cart-text{
+  font-weight:bold;
+  color:white;
+  font-size:15px;
+  margin-top:12px;
+}
+.mobile-header-div{
+  display: none;
+  height:84px;/*42 half*/
+  background-color: black;
+  position:fixed;
+  top:62px;
+  left:0;
+  right:0;
+}
+.mobile-returns-orders-div,
+.mobile-checkout-div{
+  height:42px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  color:white;
+  transition:background-color 0.15s;
+  font-weight:bold;
+  font-size:16px;
+}
+.mobile-returns-orders-div:hover,
+.mobile-checkout-div:hover{
+  background-color: rgba(1, 69, 146, 0.279);
+}
+.mobile-checkout-link{
+  text-decoration: none;
+}
+.mobile-header-div-display{
+  display: block;
+}
+.mobile-cart-count{
+  color:rgb(255, 124, 2);
+}
+@media (max-width:574.40px){
+  .amazon-logo-link{
+    display: none;
+  }
+  .amazon-logo-mobile-link{
+    display: block;
+    margin-right:9px;
+  }
+  .returns-orders-link,
+  .cart-link-div{
+    display: none;
+  }
+  .hamburger-menu{
+    display:block;
+    margin-left:15px;
+  }
+  .search-bar{
+    margin-left:0;
+  }
+  .mobile-header-div-display{
+  display: block;
+}
+}
+@media ((min-width:574.41px) and (max-width:800px)){
+  .amazon-logo-link{
+    margin-right:10px;
+  }
+  .search-bar{
+    margin-left:0;
+    width:138px;
+  }
+  .returns-orders-link{
+    margin-left:20px;
+  }
+  .mobile-header-div-display{
+    display: none;
+  }
+}
+@media (min-width:801px) and (max-width:1280px){
+  .search-bar{
+    margin-left:74px;
+  }
+  .returns-orders-link{
+    margin-left:20px;
+  }
+  .mobile-header-div-display{
+    display: none;
+  }
+}
+@media (min-width:1281px){
+  .search-bar{
+    margin-left:70px;
+  }
+  .returns-orders-link{
+    margin-left:22px;
+  }
+  .mobile-header-div-display{
+    display: none;
+  }
+}

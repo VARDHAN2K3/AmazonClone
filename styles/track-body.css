@@ -1,0 +1,68 @@
+body{
+    font-family:Arial;
+    padding-top:90px;
+    -webkit-tap-highlight-color: transparent;
+  }
+.main-div{
+    max-width:890px;
+    margin-left:20px;
+    margin-right:20px;
+}
+.orders-link-txt{
+    text-decoration: underline;
+    color:rgb(12, 143, 194);
+    transition:color 0.15s;
+}
+.orders-link-txt:hover{
+    color:rgb(180, 65, 65);
+}
+.delivery-date{
+    font-weight:bold;
+    font-size:26px;
+    margin-top:36px;
+    margin-bottom:16px;
+}
+.name{
+    margin-bottom:6px;
+}
+.product-image{
+    margin-top:30px;
+    height:100px;
+    object-fit:contain;
+    margin-bottom:50px;
+}
+.progress-bar-txt-div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:16px;
+}
+.progress-txt{
+    font-weight:550;
+    font-size:20px;
+}
+.progress-bar-div{
+    height:26px;
+    border:1px solid rgb(218, 217, 217);
+    border-radius:25px;
+}
+.progress-bar{
+    height:26px;
+    background-color: rgb(0, 139, 0);
+    border-radius:25px;
+    margin-right:220px;
+}
+#progress{
+    width: 100%;
+    height: 50px;
+}
+@media(max-width:574.40px){
+    .progress-txt{
+        font-size:16px;
+    }
+}
+@media(min-width:974px){
+    .main-div{
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
