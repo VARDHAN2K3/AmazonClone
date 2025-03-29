@@ -257,7 +257,7 @@ document.querySelector('.js-place-order-btn').addEventListener('click',() => {
     if(cart.Length()){
         moveToOrdersList(total);
         localStorage.removeItem('cart');
-        open('../orders.html',EventTarget="_self");
+        //open('../orders.html',EventTarget="_self");
     }
 });
 
