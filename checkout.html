@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Out</title>
+    <link rel="stylesheet" href="styles/checkout-header.css">
+    <link rel="stylesheet" href="styles/checkout-general.css">
+    <link rel="stylesheet" href="styles/checkout-body.css">
+</head>
+<body>
+    <header class="header-div js-header-div">
+        <header class="header">
+            <section class="left-header">
+                <a href="index.html">
+                    <img src="images/amazon-mobile-logo.png" class="amazon-mobile-logo">
+                </a>
+                <a href="index.html">
+                    <img src="images/amazon-logo.png" class="amazon-logo">
+                </a>
+            </section>
+            <section class="center-header">
+                <div class="checkout-txt">
+                    Checkout (<label class="checkout-count js-checkout-count">0 items</label>)
+                </div>
+            </section>
+            <section class="right-header">
+                <img src="images/icons/checkout-lock-icon.png" class="checkout-lock-icon">
+            </section>
+        </header>
+    </header>
+    
+    <main class="checkout-main js-checkout-main">
+        <div class="title">
+            Review your order
+        </div>
+        <div class="checkout-grid">
+
+            <div class="cart-list js-cart-list">
+            </div>
+
+            <div class="order-summary-main">
+                <div class="os-title">
+                    Order Summary
+                </div>
+
+                <div class="order-summary js-order-summmary">
+                    
+                </div>
+
+                <div class="checkbox-div">
+                    <div>Use PayPal</div>
+                    <input type="checkbox" class="checkbox">
+                </div>
+                <button class="place-order-btn js-place-order-btn">
+                    Place your order
+                </button>
+            </div>
+
+        </div>
+    </main>
+    <script type="module" src="javascript/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tracking</title>
+    <link rel="stylesheet" href="styles/amazon-header.css">
+    <link rel="stylesheet" href="styles/track-body.css">
+</head>
+<body>
+    <header class="header js-header">
+
+        <section class="left-header">
+          <a class="amazon-logo-mobile-link" href="index.html">
+            <img class="amazon-logo-mobile-icon" src="images/amazon-mobile-logo-white.png">
+          </a>
+          <a class="amazon-logo-link" href="index.html">
+            <img class="amazon-logo" src="images/amazon-logo-white.png">
+          </a>
+        </section>
+    
+        <section class="center-header">
+            <input class="search-bar" 
+            placeholder="Search">
+            <button class="search-icon-btn">
+              <img class="search-icon" src="images/icons/search-icon.png">
+            </button>
+        </section>
+    
+        <section class="right-header">
+            <div class="hamburger-menu js-hamburger-menu">
+              <img class="hamburger-menu-icon" src="images/icons/hamburger-menu.png">
+            </div>
+            <a href="orders.html" class="orders-link">
+              <div class="returns-orders-link">
+                <div class="returns">
+                  Returns
+                </div>
+                <div class="orders">
+                  & Orders
+                </div>
+              </div>
+            </a>
+            <a class="cart-link" href="checkout.html">
+              <div class="cart-link-div">
+                <div class="cart-count-position">
+                  <img class="cart-icon" src="images/icons/cart-icon.png">
+                  <div class="cart-count js-cart-count">0</div>
+                </div>
+                <div class="cart-text">
+                  Cart
+                </div>
+              </div>
+            </a>
+        </section>
+    
+        <div class="mobile-header-div  js-mobile-header-div">
+          <a href="orders.html" class="mobile-returns-orders-link">
+            <div class="mobile-returns-orders-div">
+              Returns & Orders
+            </div>
+          </a>
+          <a href="checkout.html" class="mobile-checkout-link">
+            <div class="mobile-checkout-div">
+              Cart (<div class="mobile-cart-count js-mobile-cart-count">0</div>)
+            </div>
+          </a>
+        </div>
+
+    </header>
+
+    <main class="main-div js-main-div">
+    </main>
+
+    <script type="module" src="javascript/track.js"></script>
+</body>
+</html>
