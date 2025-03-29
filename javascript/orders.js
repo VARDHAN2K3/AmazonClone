@@ -106,7 +106,7 @@ function renderProducts(ids,arrivalDay,quantity){
                         Quantity: ${quantity[index]}
                     </div>
                     <button class="buy-again-button js-buy-again-btn" data-product-id="${matching.id}">
-                        <img src="../images/icons/buy-again.png" class="buy-again-img">
+                        <img src="../images/buy-again.png" class="buy-again-img">
                         <div class="buy-again-txt">
                             Buy it again
                         </div>
@@ -135,7 +135,7 @@ function addedMsg(btn){
     setTimeout(() => {
         btn.innerHTML =
         `
-            <img src="../images/icons/buy-again.png" class="buy-again-img">
+            <img src="../images/buy-again.png" class="buy-again-img">
             <div class="buy-again-txt">
                 Buy it again
             </div>
