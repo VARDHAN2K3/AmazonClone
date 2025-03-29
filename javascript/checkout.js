@@ -42,7 +42,7 @@ function renderCheckOut(){
                     </div>
                     <div class="product-details-div">
                         <div>
-                            <img src="../${matching.image}" class="product-img">
+                            <img src="${matching.image}" class="product-img">
                         </div>
                         <div class="product-details">
                             <div class="product-name">
