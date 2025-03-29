@@ -20,7 +20,7 @@ html+=
           </div>
           <div class="ratings-display">
           <div>
-              <img class="stars" src="../images/ratings/rating-${product.rating.stars * 10}.png">
+              <img class="stars" src="../images/rating-${product.rating.stars * 10}.png">
           </div>
           <div class="count">${product.rating.count}</div>
           </div>
@@ -83,7 +83,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((addBtn) => {
 function renderAddedMsg(productId,dlQuantity){
   const divAdded=document.querySelector(`.js-added-msg-${productId}`);
   setTimeout(() => {
-    divAdded.innerHTML=`<img class="checkmark-icon" src="../images/icons/checkmark.png"> Added ${dlQuantity}`;
+    divAdded.innerHTML=`<img class="checkmark-icon" src="../images/checkmark.png"> Added ${dlQuantity}`;
   },0);
   setTimeout(() =>{
     divAdded.innerHTML='';
