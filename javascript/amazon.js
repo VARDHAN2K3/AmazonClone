@@ -12,7 +12,7 @@ html+=
     `
     <main class="products-display">
         <div class="product-image-display">
-        <img class="products-image" src="../images/6-piece-white-dinner-plate-set.jpg">
+        <img class="products-image" src="${product.image}">
         </div>
         <div class="product-details-div">
           <div class="products-details">
